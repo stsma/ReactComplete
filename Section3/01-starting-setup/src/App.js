@@ -25,9 +25,22 @@ const App = () => {
     },
   ];
 
+  const newExpenseDataHandler = (newExpenseData) => {
+    const expense = {
+      id: newExpenseData.id,
+      title: newExpenseData.title,
+      amount: newExpenseData.amount,
+      date: new Date(newExpenseData.date)
+    }
+
+    expenses.push(expense);
+
+    console.log(expenses);
+  }
+
   return (
     <div>
-      <NewExpense />
+      <NewExpense onAddNewExpenseData={newExpenseDataHandler} />
       <Expenses data={expenses}/>
     </div>
   );
