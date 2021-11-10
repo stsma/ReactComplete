@@ -5,6 +5,7 @@ const ExpenseForm = (props) =>{
     const [enteredTitle, setEnteredTitle] = useState('');
     const [enteredAmount, setEnteredAmount] = useState('');
     const [enteredDate, setEnteredDate] = useState('');
+    const [hasAddedNewExpense, setAddedNewExpense] = useState(props.showFormValue);
 
     // const [userInput, setUserInput] = useState({
     //     enteredTitle: '',
@@ -13,8 +14,6 @@ const ExpenseForm = (props) =>{
     // })
 
     const titleChangeHandler = (event) => {
-        //not a good practice
-        //setUserInput({...userInput, enteredTitle: event.target.value});
         setEnteredTitle(event.target.value);
 
         //a good practice of setting state
@@ -47,7 +46,14 @@ const ExpenseForm = (props) =>{
         setEnteredTitle('');
         setEnteredAmount('');
         setEnteredDate('');
+
+        cancelButtonHandler();
+
     };
+
+    const cancelButtonHandler = () =>{
+        props.onShowForm(props.showFormValue);
+    }
 
     return (<form onSubmit={submitHandler} >
         <div className="new-expense__controls">
@@ -65,6 +71,7 @@ const ExpenseForm = (props) =>{
             </div>
         </div>
         <div className="new-expense__actions">
+            <button type="button" onClick={cancelButtonHandler}>Cancel</button>
             <button type="submit">Add Expense</button>
         </div>
     </form>)
