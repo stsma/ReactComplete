@@ -31,10 +31,6 @@ const FormControl = styled.div`
   border-color: #8b005d;
 }
 
-@media (min-width: 768px){
-  width: auto;
-}
-
 `;
 
 const CourseInput = props => {
