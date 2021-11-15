@@ -5,6 +5,7 @@ import Button from '../../UI/Button/Button';
 import './CourseInput.css';
 
 const FormControl = styled.div`
+  width: 100%;
   margin: 0.5rem 0;
 
   & label {
@@ -29,6 +30,11 @@ const FormControl = styled.div`
   background: #fad0ec;
   border-color: #8b005d;
 }
+
+@media (min-width: 768px){
+  width: auto;
+}
+
 `;
 
 const CourseInput = props => {
